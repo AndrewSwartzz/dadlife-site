@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}{{ city.headline }}{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="bg-gradient-to-br from-green-200 via-white to-gray-50 py-20">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+      {{ city.headline }}
+    </h1>
+
+    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+      Local, honest, and stress-free home selling solutions for homeowners in {{ city.name }} and surrounding areas.
+    </p>
+
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="py-20">
+  <div class="max-w-5xl mx-auto px-6">
+
+    <div class="text-lg text-gray-700 space-y-6">
+      <p>{{ city.content }}</p>
+
+      <p>
+        Whether your home needs repairs, you’ve inherited a property, or you simply want a fast sale without listings
+        and showings — we provide fair, transparent solutions tailored to your situation.
+      </p>
+
+      <p class="font-semibold text-gray-800">
+        No pressure. No hidden fees. Just honest answers.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="bg-gray-50 py-20">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+
+    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-10">
+      Why Homeowners in {{ city.name }} Choose Us
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition duration-200 hover:-translate-y-1">
+        <h3 class="font-bold text-xl mb-3">Sell As-Is</h3>
+        <p>No repairs, cleaning, or upgrades needed.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition duration-200 hover:-translate-y-1">
+        <h3 class="font-bold text-xl mb-3">Close Fast</h3>
+        <p>Choose a closing date that fits your timeline.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition duration-200 hover:-translate-y-1">
+        <h3 class="font-bold text-xl mb-3">Local & Trusted</h3>
+        <p>Family-owned business serving the Lehigh Valley.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- LOCAL CTA -->
+<section class="bg-gradient-to-r from-green-700 to-green-800 py-20 text-white text-center">
+  <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+    Ready to See What Your {{ city.name }} Home Could Sell For?
+  </h2>
+
+  <p class="mb-8 text-lg">
+    Use our quick estimator to get a realistic offer range in minutes.
+  </p>
+
+  <a href="{{ url_for('offer') }}"
+     class="bg-white text-green-700 px-8 py-4 rounded-lg text-lg font-semibold 
+            hover:bg-gray-100 transition duration-200 shadow-md hover:shadow-lg">
+    Get My Offer Estimate
+  </a>
+</section>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Admin - Leads{% endblock %}
+
+{% block content %}
+<section class="py-16">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h1 class="text-3xl font-bold mb-8">Incoming Leads</h1>
+
+    {% if leads %}
+    <div class="overflow-x-auto">
+      <table class="w-full border border-gray-200 text-sm">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="border px-3 py-2 text-left">Date</th>
+            <th class="border px-3 py-2 text-left">Name</th>
+            <th class="border px-3 py-2 text-left">Phone</th>
+            <th class="border px-3 py-2 text-left">Email</th>
+            <th class="border px-3 py-2 text-left">Address</th>
+            <th class="border px-3 py-2 text-left">Message</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for lead in leads %}
+          <tr class="hover:bg-gray-50">
+            <td class="border px-3 py-2 whitespace-nowrap">
+              {{ lead.created_at.strftime('%Y-%m-%d %H:%M') }}
+            </td>
+            <td class="border px-3 py-2">{{ lead.name }}</td>
+            <td class="border px-3 py-2">{{ lead.phone }}</td>
+            <td class="border px-3 py-2">{{ lead.email or "-" }}</td>
+            <td class="border px-3 py-2">{{ lead.address or "-" }}</td>
+            <td class="border px-3 py-2">{{ lead.message or "-" }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+      <p>No leads yet.</p>
+    {% endif %}
+
+  </div>
+</section>
+{% endblock %}

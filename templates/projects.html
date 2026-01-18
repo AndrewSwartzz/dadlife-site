@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block title %}Our Projects | Dadlife Property Solutions{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="bg-gradient-to-br from-green-200 via-white to-gray-50 py-20">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+      Real Transformations. Real Results.
+    </h1>
+
+    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+      Take a look at a few homes we’ve purchased and renovated across the Lehigh Valley.
+      Hover or tap to see the before and after.
+    </p>
+
+  </div>
+</section>
+
+<!-- PROJECT GRID -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <!-- PROJECT CARD -->
+      <div class="text-center">
+        <div class="flip-card mx-auto">
+          <div class="flip-inner">
+
+            <!-- BEFORE -->
+            <div class="flip-front">
+              <img src="{{ url_for('static', filename='images/project1_before.jpg') }}"
+                   class="rounded-2xl shadow-xl ring-1 ring-gray-200 object-cover w-full h-64"
+                   alt="Before renovation">
+            </div>
+
+            <!-- AFTER -->
+            <div class="flip-back">
+              <img src="{{ url_for('static', filename='images/project1_after.jpg') }}"
+                   class="rounded-2xl shadow-xl ring-1 ring-gray-200 object-cover w-full h-64"
+                   alt="After renovation">
+            </div>
+
+          </div>
+        </div>
+
+        <p class="mt-4 font-semibold">Bethlehem Renovation</p>
+        <p class="text-sm text-gray-600">Full interior remodel</p>
+      </div>
+
+      <!-- PROJECT CARD -->
+      <div class="text-center">
+        <div class="flip-card mx-auto">
+          <div class="flip-inner">
+
+            <div class="flip-front">
+              <img src="{{ url_for('static', filename='images/project2_before.jpg') }}"
+                   class="rounded-2xl shadow-xl ring-1 ring-gray-200 object-cover w-full h-64">
+            </div>
+
+            <div class="flip-back">
+              <img src="{{ url_for('static', filename='images/project2_after.jpg') }}"
+                   class="rounded-2xl shadow-xl ring-1 ring-gray-200 object-cover w-full h-64">
+            </div>
+
+          </div>
+        </div>
+
+        <p class="mt-4 font-semibold">Allentown Property</p>
+        <p class="text-sm text-gray-600">Kitchen & exterior upgrade</p>
+      </div>
+
+      <!-- PROJECT CARD -->
+      <div class="text-center">
+        <div class="flip-card mx-auto">
+          <div class="flip-inner">
+
+            <div class="flip-front">
+              <img src="{{ url_for('static', filename='images/project3_before.jpg') }}"
+                   class="rounded-2xl shadow-xl ring-1 ring-gray-200 object-cover w-full h-64">
+            </div>
+
+            <div class="flip-back">
+              <img src="{{ url_for('static', filename='images/project3_after.jpg') }}"
+                   class="rounded-2xl shadow-xl ring-1 ring-gray-200 object-cover w-full h-64">
+            </div>
+
+          </div>
+        </div>
+
+        <p class="mt-4 font-semibold">Easton Flip</p>
+        <p class="text-sm text-gray-600">Complete home modernization</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-gradient-to-r from-green-700 to-green-800 py-20 text-white text-center">
+  <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+    Want a Stress-Free Home Sale?
+  </h2>
+
+  <p class="mb-8 text-lg">
+    Get a realistic offer range for your home in minutes.
+  </p>
+
+  <a href="{{ url_for('offer') }}"
+     class="bg-white text-green-700 px-8 py-4 rounded-lg text-lg font-semibold 
+            hover:bg-gray-100 transition duration-200 shadow-md hover:shadow-lg">
+    Get My Offer Estimate
+  </a>
+</section>
+
+<!-- FLIP CARD CSS -->
+<style>
+.flip-card {
+  perspective: 1200px;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+</style>
+
+{% endblock %}

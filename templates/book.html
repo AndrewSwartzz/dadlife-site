@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Book an Appointment{% endblock %}
+
+{% block content %}
+<section class="py-16">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+
+    <h1 class="text-3xl font-bold mb-4">
+      Schedule a Quick Call
+    </h1>
+
+    <p class="text-gray-600 mb-8">
+      Pick a time that works best for you. No pressure — just a quick conversation.
+    </p>
+
+    <!-- Calendly Embed -->
+    <div class="calendly-inline-widget"
+         data-url="https://calendly.com/YOUR-CALENDLY-USERNAME/consultation"
+         style="min-width:320px;height:700px;">
+    </div>
+
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+  </div>
+</section>
+{% endblock %}

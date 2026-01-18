@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block title %}Instant Offer Estimator{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="bg-gradient-to-br from-green-200 via-white to-gray-50 py-20">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+      Get an Instant Home Offer Estimate
+    </h1>
+
+    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+      Answer a few quick questions and receive a realistic offer range for your home.
+      No signup required. No pressure.
+    </p>
+
+  </div>
+</section>
+
+<!-- FORM CARD -->
+<section class="py-20">
+  <div class="max-w-xl mx-auto px-6">
+
+    <div class="bg-white rounded-2xl shadow-xl ring-1 ring-gray-200 p-8">
+
+      <h2 class="text-2xl font-bold mb-6 text-center">
+        Property Details
+      </h2>
+
+      <form method="POST" class="space-y-6">
+
+        <!-- Address -->
+        <input name="address" required
+          placeholder="Property Address"
+          class="w-full border border-gray-300 p-3 rounded-lg
+                 focus:ring-2 focus:ring-green-600 focus:outline-none">
+
+        <!-- Zillow Value -->
+        <input name="zillow_value" required type="number"
+          placeholder="Zillow / Market Estimate ($)"
+          class="w-full border border-gray-300 p-3 rounded-lg
+                 focus:ring-2 focus:ring-green-600 focus:outline-none">
+
+        <!-- Repairs -->
+        <div>
+          <p class="font-semibold mb-3">Select Any Needed Repairs:</p>
+
+          <div class="space-y-2 text-gray-700">
+
+            <label class="flex items-center gap-2">
+              <input type="checkbox" name="repairs" value="12000"
+                     class="w-4 h-4 text-green-600">
+              Roof ($12,000)
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input type="checkbox" name="repairs" value="8000"
+                     class="w-4 h-4 text-green-600">
+              HVAC ($8,000)
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input type="checkbox" name="repairs" value="20000"
+                     class="w-4 h-4 text-green-600">
+              Kitchen ($20,000)
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input type="checkbox" name="repairs" value="12000"
+                     class="w-4 h-4 text-green-600">
+              Bathrooms ($12,000)
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input type="checkbox" name="repairs" value="7000"
+                     class="w-4 h-4 text-green-600">
+              Flooring / Paint ($7,000)
+            </label>
+
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit"
+          class="w-full bg-green-700 text-white py-3 rounded-lg text-lg
+                 hover:bg-green-800 transition duration-200
+                 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+          Calculate My Offer
+        </button>
+
+      </form>
+
+      <p class="text-sm text-gray-500 text-center mt-4">
+        This estimate is free and requires no commitment.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="bg-gray-50 py-16">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+
+    <h3 class="text-xl font-bold mb-4">
+      Why Use Our Estimator?
+    </h3>
+
+    <div class="flex justify-center gap-6 text-gray-600 text-sm flex-wrap">
+      <span>✔ No signup required</span>
+      <span>✔ Honest local buyers</span>
+      <span>✔ Sell as-is</span>
+      <span>✔ Close on your timeline</span>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
