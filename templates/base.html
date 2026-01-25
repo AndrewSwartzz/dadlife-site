@@ -8,9 +8,57 @@
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-        html { scroll-behavior: smooth; }
-    </style>
+<style>
+  html { scroll-behavior: smooth; }
+
+  :root {
+  --brand-green: #166534;
+  --brand-green-dark: #14532d;
+  --brand-green-light: #dcfce7;
+  --brand-green-mid: #bbf7d0; /* NEW */
+}
+
+
+  .bg-brand { background-color: var(--brand-green); }
+  .bg-brand-dark { background-color: var(--brand-green-dark); }
+  .bg-brand-light { background-color: var(--brand-green-light); }
+  .text-brand { color: var(--brand-green); }
+  .border-brand { border-color: var(--brand-green); }
+
+  /* Scroll fade animation */
+.fade-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-section').forEach(section => {
+    observer.observe(section);
+  });
+
+});
+</script>
+
+
+    
 </head>
 <body class="bg-white text-gray-800">
 
