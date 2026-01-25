@@ -10,3 +10,10 @@ MarkupSafe==3.0.3
 SQLAlchemy==2.0.45
 typing_extensions==4.15.0
 Werkzeug==3.1.5
+Flask
+flask_sqlalchemy
+flask_login
+flask_mail
+python-dotenv
+requests
+gunicorn
