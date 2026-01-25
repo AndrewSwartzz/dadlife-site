@@ -3,24 +3,31 @@
 
 {% block content %}
 
-<!-- HERO -->
-<section class="bg-gradient-to-br from-[var(--brand-green-light)] via-white to-gray-50">
-  <div class="max-w-7xl mx-auto px-6 py-20 text-center">
+<!-- HERO WITH BACKGROUND IMAGE -->
+<section class="relative overflow-hidden bg-cover bg-center fade-section"
+  style="background-image: url('{{ url_for('static', filename='images/section-bg.jpg') }}');">
+
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <!-- Hero Content -->
+  <div class="relative max-w-7xl mx-auto px-6 py-24 text-center text-white">
 
     <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
       A Local Family. An Honest Conversation.
     </h1>
 
-    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-      We’re not a big corporation or a national chain.  
-      We’re a local family here in the Lehigh Valley, helping other families find simple and stress-free solutions for selling a home.
+    <p class="text-lg text-gray-200 max-w-3xl mx-auto">
+      We’re not a big corporation or national chain.  
+      We’re a local family in the Lehigh Valley helping homeowners find simple, stress-free ways to sell.
     </p>
 
   </div>
 </section>
 
+
 <!-- INTRO SECTION -->
-<section class="py-20">
+<section class="py-20 bg-white fade-section">
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
     <div>
@@ -29,11 +36,11 @@
       </h2>
 
       <p class="text-gray-700 mb-4">
-        Our family lives right here in the Lehigh Valley. We started this business because we saw how stressful selling a home can be — repairs, agents, showings, uncertainty — and we knew there had to be a simpler way.
+        Our family lives right here in the Lehigh Valley. We started this business after seeing how stressful selling a home can be — repairs, agents, showings, uncertainty — and knowing there had to be a simpler way.
       </p>
 
       <p class="text-gray-700 mb-4">
-        Our goal is straightforward: have an honest conversation, look at your situation, and give you clear options. If selling to us makes sense, great. If listing traditionally is better for you, we’ll tell you that too.
+        Our goal is straightforward: have an honest conversation, look at your situation, and give you clear options. If selling to us makes sense, great. If listing traditionally is better, we’ll tell you that too.
       </p>
 
       <p class="text-gray-700">
@@ -44,99 +51,147 @@
     <div class="flex justify-center">
       <img src="{{ url_for('static', filename='images/family.png') }}"
            alt="Our Family"
-           class="rounded-xl shadow-lg max-w-xs md:max-w-sm mx-auto">
+           class="rounded-xl shadow-lg w-[300px] md:w-[360px] object-contain">
     </div>
 
   </div>
 </section>
 
-<hr class="border-gray-200">
 
 <!-- VALUES -->
-<section class="py-20 bg-gray-50">
+<section class="py-20 bg-gray-50 fade-section">
   <div class="max-w-6xl mx-auto px-6 text-center">
 
-    <h2 class="text-3xl md:text-4xl font-bold mb-10">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12">
       What You Can Expect From Us
     </h2>
 
     <div class="grid md:grid-cols-3 gap-8">
 
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition duration-200 hover:-translate-y-1">
-        <div class="text-brand text-3xl mb-3">✔</div>
-        <h3 class="font-bold text-xl mb-2">Honest Advice</h3>
+      <!-- Card -->
+      <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition hover:-translate-y-1">
+        <div class="flex justify-center mb-4">
+          <span class="flex items-center justify-center w-10 h-10 rounded-full 
+                       bg-[var(--brand-green)] text-white text-lg font-bold shadow">
+            ✔
+          </span>
+        </div>
+        <h3 class="font-bold text-xl mb-3">Honest Advice</h3>
         <p class="text-gray-600">
           If selling to us isn’t the best move for you, we’ll tell you straight up.
         </p>
       </div>
 
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition duration-200 hover:-translate-y-1">
-        <div class="text-brand text-3xl mb-3">✔</div>
-        <h3 class="font-bold text-xl mb-2">No Pressure</h3>
+      <!-- Card -->
+      <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition hover:-translate-y-1">
+        <div class="flex justify-center mb-4">
+          <span class="flex items-center justify-center w-10 h-10 rounded-full 
+                       bg-[var(--brand-green)] text-white text-lg font-bold shadow">
+            ✔
+          </span>
+        </div>
+        <h3 class="font-bold text-xl mb-3">No Pressure</h3>
         <p class="text-gray-600">
           No sales scripts. No obligations. Just a real conversation.
         </p>
       </div>
 
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition duration-200 hover:-translate-y-1">
-        <div class="text-brand text-3xl mb-3">✔</div>
-        <h3 class="font-bold text-xl mb-2">Local & Personal</h3>
+      <!-- Card -->
+      <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition hover:-translate-y-1">
+        <div class="flex justify-center mb-4">
+          <span class="flex items-center justify-center w-10 h-10 rounded-full 
+                       bg-[var(--brand-green)] text-white text-lg font-bold shadow">
+            ✔
+          </span>
+        </div>
+        <h3 class="font-bold text-xl mb-3">Local & Personal</h3>
         <p class="text-gray-600">
           We live here too — so we care about treating people the right way.
         </p>
       </div>
 
     </div>
-
   </div>
 </section>
 
-<hr class="border-gray-200">
 
 <!-- PROCESS SUMMARY -->
-<section class="py-20">
+<section class="py-20 bg-white fade-section">
   <div class="max-w-5xl mx-auto px-6 text-center">
 
     <h2 class="text-3xl md:text-4xl font-bold mb-6">
       How We Help
     </h2>
 
-    <p class="text-gray-700 mb-8">
-      Every situation is different. Whether your home needs repairs, you inherited a property, or you just want to avoid the traditional listing process — we’ll walk through your options together.
+    <p class="text-gray-700 mb-10">
+      Every situation is different. Whether your home needs repairs, you inherited a property,
+      or you just want to avoid the traditional listing process — we’ll walk through your options together.
     </p>
 
-    <ul class="space-y-3 text-lg text-left inline-block">
-      <li><span class="text-brand font-bold">✔</span> Sell your home as-is</li>
-      <li><span class="text-brand font-bold">✔</span> No agent fees or commissions</li>
-      <li><span class="text-brand font-bold">✔</span> Close on your timeline</li>
-      <li><span class="text-brand font-bold">✔</span> We handle paperwork & closing costs</li>
+    <ul class="space-y-4 text-lg text-left inline-block">
+
+      <li class="flex items-center gap-3">
+        <span class="flex items-center justify-center w-6 h-6 rounded-full 
+                     bg-[var(--brand-green)] text-white text-sm font-bold shadow">
+          ✔
+        </span>
+        Sell your home as-is
+      </li>
+
+      <li class="flex items-center gap-3">
+        <span class="flex items-center justify-center w-6 h-6 rounded-full 
+                     bg-[var(--brand-green)] text-white text-sm font-bold shadow">
+          ✔
+        </span>
+        No agent fees or commissions
+      </li>
+
+      <li class="flex items-center gap-3">
+        <span class="flex items-center justify-center w-6 h-6 rounded-full 
+                     bg-[var(--brand-green)] text-white text-sm font-bold shadow">
+          ✔
+        </span>
+        Close on your timeline
+      </li>
+
+      <li class="flex items-center gap-3">
+        <span class="flex items-center justify-center w-6 h-6 rounded-full 
+                     bg-[var(--brand-green)] text-white text-sm font-bold shadow">
+          ✔
+        </span>
+        We handle paperwork & closing costs
+      </li>
+
     </ul>
 
   </div>
 </section>
 
+
 <!-- FINAL CTA -->
-<section class="bg-brand py-16 text-white text-center">
-  <h2 class="text-3xl md:text-4xl font-bold mb-4">
+<section class="bg-[var(--brand-green)] py-20 text-white text-center fade-section">
+  <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
     Want to see if we’re a good fit?
   </h2>
 
-  <p class="mb-6 text-lg">
+  <p class="mb-8 text-lg">
     Start with a quick estimate or reach out for a conversation.
   </p>
 
   <div class="flex justify-center gap-4 flex-wrap">
+
     <a href="{{ url_for('offer') }}"
-       class="bg-white text-brand px-6 py-3 rounded-lg font-semibold 
-              hover:bg-gray-100 transition duration-200 shadow-md">
+       class="bg-white text-brand px-8 py-4 rounded-lg text-lg font-semibold 
+              hover:bg-gray-100 transition shadow-md hover:shadow-lg">
       See My Offer Range
     </a>
 
     <a href="{{ url_for('contact') }}"
-       class="border border-white px-6 py-3 rounded-lg font-semibold 
-              hover:bg-white hover:text-brand transition duration-200">
+       class="border border-white px-8 py-4 rounded-lg text-lg font-semibold 
+              hover:bg-white hover:text-brand transition shadow-md hover:shadow-lg">
       Contact Us
     </a>
+
   </div>
 </section>
 

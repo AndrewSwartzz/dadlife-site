@@ -28,7 +28,6 @@
       <!-- Buttons -->
       <div class="flex flex-wrap gap-4">
 
-        <!-- Primary CTA -->
         <a href="{{ url_for('offer') }}"
            class="bg-[var(--brand-green)] text-white px-6 py-3 rounded-lg text-lg 
                   hover:bg-[var(--brand-green-dark)] transition duration-200 
@@ -36,7 +35,6 @@
           Get Your Offer
         </a>
 
-        <!-- Secondary invert hover -->
         <a href="tel:15555555555"
            class="bg-white text-brand border border-brand px-6 py-3 rounded-lg text-lg
                   shadow-sm transition duration-200
@@ -47,28 +45,42 @@
       </div>
 
       <!-- Trust badges -->
-      <div class="flex gap-6 mt-6 text-sm text-gray-200">
-        <span class="flex items-center gap-1">
-          <span class="text-[var(--brand-green-light)] font-bold">✔</span> Local Family-Owned
+      <div class="flex gap-6 mt-6 text-sm text-gray-200 flex-wrap">
+
+        <span class="flex items-center gap-2">
+          <span class="flex items-center justify-center w-5 h-5 rounded-full 
+                       bg-[var(--brand-green)] text-white text-xs font-bold shadow">
+            ✔
+          </span>
+          Local Family-Owned
         </span>
-        <span class="flex items-center gap-1">
-          <span class="text-[var(--brand-green-light)] font-bold">✔</span> No Fees
+
+        <span class="flex items-center gap-2">
+          <span class="flex items-center justify-center w-5 h-5 rounded-full 
+                       bg-[var(--brand-green)] text-white text-xs font-bold shadow">
+            ✔
+          </span>
+          No Fees
         </span>
-        <span class="flex items-center gap-1">
-          <span class="text-[var(--brand-green-light)] font-bold">✔</span> Close in Days
+
+        <span class="flex items-center gap-2">
+          <span class="flex items-center justify-center w-5 h-5 rounded-full 
+                       bg-[var(--brand-green)] text-white text-xs font-bold shadow">
+            ✔
+          </span>
+          Close in Days
         </span>
+
       </div>
     </div>
 
-<!-- RIGHT: Logo -->
-<div class="flex justify-center md:justify-end md:pr-20">
-  <img src="{{ url_for('static', filename='images/logo.png') }}"
-       alt="Dadlife Property Solutions Logo"
-       class="w-[300px] md:w-[360px] object-contain
-              drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
-</div>
-
-
+    <!-- RIGHT: Logo -->
+    <div class="flex justify-center md:justify-end md:pr-20">
+      <img src="{{ url_for('static', filename='images/logo.png') }}"
+           alt="Dadlife Property Solutions Logo"
+           class="w-[300px] md:w-[360px] object-contain
+                  drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+    </div>
 
   </div>
 </section>
@@ -82,10 +94,39 @@
     </h2>
 
     <ul class="grid md:grid-cols-2 gap-6 text-left text-lg">
-      <li><span class="text-brand font-bold">✔</span> You need to sell quickly</li>
-      <li><span class="text-brand font-bold">✔</span> The property needs repairs</li>
-      <li><span class="text-brand font-bold">✔</span> You inherited a home</li>
-      <li><span class="text-brand font-bold">✔</span> You don’t want showings or listings</li>
+
+      <li class="flex items-center gap-3">
+        <span class="flex items-center justify-center w-6 h-6 rounded-full 
+                     bg-[var(--brand-green)] text-white text-sm font-bold shadow">
+          ✔
+        </span>
+        You need to sell quickly
+      </li>
+
+      <li class="flex items-center gap-3">
+        <span class="flex items-center justify-center w-6 h-6 rounded-full 
+                     bg-[var(--brand-green)] text-white text-sm font-bold shadow">
+          ✔
+        </span>
+        The property needs repairs
+      </li>
+
+      <li class="flex items-center gap-3">
+        <span class="flex items-center justify-center w-6 h-6 rounded-full 
+                     bg-[var(--brand-green)] text-white text-sm font-bold shadow">
+          ✔
+        </span>
+        You inherited a home
+      </li>
+
+      <li class="flex items-center gap-3">
+        <span class="flex items-center justify-center w-6 h-6 rounded-full 
+                     bg-[var(--brand-green)] text-white text-sm font-bold shadow">
+          ✔
+        </span>
+        You don’t want showings or listings
+      </li>
+
     </ul>
 
     <p class="mt-8 text-gray-700">
@@ -126,14 +167,12 @@
   </div>
 </section>
 
-<!-- LOCAL TRUST WITH BACKGROUND IMAGE -->
+<!-- LOCAL TRUST -->
 <section class="relative py-20 fade-section bg-cover bg-center"
          style="background-image: url('{{ url_for('static', filename='images/section-bg.jpg') }}');">
 
-  <!-- Dark overlay -->
   <div class="absolute inset-0 bg-black/50"></div>
 
-  <!-- Content -->
   <div class="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center text-white">
 
     <div>
@@ -146,10 +185,32 @@
         a straightforward, respectful, no-pressure way to sell their home.
       </p>
 
-      <ul class="space-y-2 text-lg text-white">
-        <li><span class="text-brand font-bold">✔</span> Local & family-owned</li>
-        <li><span class="text-brand font-bold">✔</span> No hidden fees</li>
-        <li><span class="text-brand font-bold">✔</span> Honest advice</li>
+      <ul class="space-y-3 text-lg">
+
+        <li class="flex items-center gap-3">
+          <span class="flex items-center justify-center w-6 h-6 rounded-full 
+                       bg-[var(--brand-green)] text-white text-sm font-bold shadow">
+            ✔
+          </span>
+          Local & family-owned
+        </li>
+
+        <li class="flex items-center gap-3">
+          <span class="flex items-center justify-center w-6 h-6 rounded-full 
+                       bg-[var(--brand-green)] text-white text-sm font-bold shadow">
+            ✔
+          </span>
+          No hidden fees
+        </li>
+
+        <li class="flex items-center gap-3">
+          <span class="flex items-center justify-center w-6 h-6 rounded-full 
+                       bg-[var(--brand-green)] text-white text-sm font-bold shadow">
+            ✔
+          </span>
+          Honest advice
+        </li>
+
       </ul>
     </div>
 

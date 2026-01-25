@@ -2,6 +2,15 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
+import os
+import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
+ESTATED_API_KEY = os.getenv("ESTATED_API_KEY")
+
+print("ESTATED KEY:", ESTATED_API_KEY)
 
 app = Flask(__name__)
 
@@ -126,14 +135,21 @@ def logout():
 def offer():
     if request.method == "POST":
         address = request.form["address"]
-        zillow_value = int(request.form["zillow_value"])
 
-        # Repair costs from checkboxes
+        # Get value from ATTOM / Estated
+        home_value = get_property_estimate(address)
+
+        if home_value is None:
+            return render_template("offer.html",
+                error="We couldn’t automatically find your home value. Please check the address and try again."
+            )
+
+        # Repair costs
         repairs = request.form.getlist("repairs")
         repair_total = sum(int(r) for r in repairs)
 
-        # --- Offer Calculation Logic ---
-        base_offer = int(zillow_value * 0.75)
+        # Offer logic
+        base_offer = int(home_value * 0.75)
         final_offer = base_offer - repair_total
 
         offer_low = int(final_offer * 0.95)
@@ -142,13 +158,14 @@ def offer():
         return render_template(
             "offer_result.html",
             address=address,
-            zillow_value=zillow_value,
+            zillow_value=home_value,
             repair_total=repair_total,
             offer_low=offer_low,
             offer_high=offer_high
         )
 
     return render_template("offer.html")
+
 
 @app.route("/about")
 def about():
@@ -157,41 +174,47 @@ def about():
 @app.route("/areas/<city>")
 def area_page(city):
     city_data = {
-        "allentown": {
-            "name": "Allentown",
-            "headline": "We Buy Houses in Allentown, PA",
-            "content": """
+    "allentown": {
+        "name": "Allentown",
+        "headline": "We Buy Houses in Allentown, PA",
+        "content": """
 Allentown homeowners often face situations where listing traditionally isn’t the best option.
 Whether your home needs repairs, you inherited a property, or you simply want a fast and stress-free sale,
 Dadlife Property Solutions provides fair, honest solutions for selling your home as-is.
 
 We handle the paperwork, cover closing costs, and work on your timeline. No agents, no showings,
 and no uncertainty. Our goal is to create a win-win solution for every Allentown family we work with.
-"""
-        },
-        "bethlehem": {
-            "name": "Bethlehem",
-            "headline": "Sell Your Home Fast in Bethlehem, PA",
-            "content": """
+""",
+        "image": "images/areas/allentown.jpg"
+    },
+
+    "bethlehem": {
+        "name": "Bethlehem",
+        "headline": "Sell Your Home Fast in Bethlehem, PA",
+        "content": """
 Selling a home in Bethlehem can feel overwhelming, especially if repairs or life changes are involved.
 We help homeowners sell quickly and conveniently without listing on the market.
 
 At Dadlife Property Solutions, we’re a local family business. We treat every homeowner with honesty,
 respect, and transparency while providing a simple, stress-free selling experience.
-"""
-        },
-        "easton": {
-            "name": "Easton",
-            "headline": "Cash Home Buyers in Easton, PA",
-            "content": """
+""",
+        "image": "images/areas/bethlehem.jpg"
+    },
+
+    "easton": {
+        "name": "Easton",
+        "headline": "Cash Home Buyers in Easton, PA",
+        "content": """
 If you need to sell a property in Easton without delays or expensive repairs,
 we offer fast and fair home-buying solutions.
 
 Our process is straightforward: tell us about your property, receive an honest offer,
 and close on your timeline. No pressure — just clear answers and local service you can trust.
-"""
-        }
+""",
+        "image": "images/areas/easton.jpg"
     }
+}
+
 
     city = city.lower()
     if city not in city_data:
@@ -210,6 +233,50 @@ def projects():
 @app.route("/book")
 def book():
     return render_template("book.html")
+
+import re
+
+def get_property_estimate(address):
+    url = "https://api.attomdata.com/propertyapi/v1.0.0/property/detail"
+
+    # Expect: "123 Main St, Allentown, PA 18102"
+    try:
+        street, city_state_zip = [x.strip() for x in address.split(",", 1)]
+        city, state_zip = [x.strip() for x in city_state_zip.split(",", 1)]
+        state, zip_code = state_zip.split()
+    except:
+        return None
+
+    headers = {
+        "apikey": ESTATED_API_KEY,
+        "accept": "application/json"
+    }
+
+    params = {
+        "address": street,
+        "city": city,
+        "state": state,
+        "postalcode": zip_code
+    }
+
+    response = requests.get(url, headers=headers, params=params)
+
+    print("STATUS:", response.status_code)
+    print("URL USED:", response.url)
+    print("RESPONSE:", response.text)
+
+    if response.status_code != 200:
+        return None
+
+    data = response.json()
+
+    try:
+        # ATTOM market value location
+        value = data["property"][0]["assessment"]["market"]["value"]
+        return int(value)
+    except:
+        return None
+
 
 import os
 

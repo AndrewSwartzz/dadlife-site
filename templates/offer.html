@@ -3,45 +3,54 @@
 
 {% block content %}
 
-<!-- HERO -->
-<section class="bg-gradient-to-br from-green-200 via-white to-gray-50 py-20">
-  <div class="max-w-6xl mx-auto px-6 text-center">
+<!-- HERO WITH BACKGROUND IMAGE -->
+<section class="relative overflow-hidden bg-cover bg-center fade-section"
+  style="background-image: url('{{ url_for('static', filename='images/home.jpg') }}');">
+
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <!-- Hero Content -->
+  <div class="relative max-w-7xl mx-auto px-6 py-24 text-center text-white">
 
     <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-      Get an Instant Home Offer Estimate
+      Get Your Instant Home Offer Estimate
     </h1>
 
-    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-      Answer a few quick questions and receive a realistic offer range for your home.
-      No signup required. No pressure.
+    <p class="text-lg text-gray-200 max-w-3xl mx-auto">
+      Answer a few quick questions and receive a realistic offer range for your home.  
+      No signup. No pressure.
     </p>
 
   </div>
 </section>
 
-<!-- FORM CARD -->
-<section class="py-20">
+
+<!-- FORM SECTION -->
+<section class="py-20 bg-white fade-section">
   <div class="max-w-xl mx-auto px-6">
 
-    <div class="bg-white rounded-2xl shadow-xl ring-1 ring-gray-200 p-8">
+    <div class="bg-white rounded-2xl shadow-xl ring-1 ring-gray-200 p-8 md:p-10">
 
       <h2 class="text-2xl font-bold mb-6 text-center">
         Property Details
       </h2>
 
+      <!-- Error Message -->
+      {% if error %}
+        <p class="text-red-600 text-center mb-4 font-medium">
+          {{ error }}
+        </p>
+      {% endif %}
+
       <form method="POST" class="space-y-6">
 
         <!-- Address -->
         <input name="address" required
-          placeholder="Property Address"
+          placeholder="Property Address (ex: 123 Main St, Allentown, PA 18102)"
           class="w-full border border-gray-300 p-3 rounded-lg
-                 focus:ring-2 focus:ring-green-600 focus:outline-none">
-
-        <!-- Zillow Value -->
-        <input name="zillow_value" required type="number"
-          placeholder="Zillow / Market Estimate ($)"
-          class="w-full border border-gray-300 p-3 rounded-lg
-                 focus:ring-2 focus:ring-green-600 focus:outline-none">
+                 focus:ring-2 focus:ring-[var(--brand-green)]
+                 focus:outline-none">
 
         <!-- Repairs -->
         <div>
@@ -51,31 +60,31 @@
 
             <label class="flex items-center gap-2">
               <input type="checkbox" name="repairs" value="12000"
-                     class="w-4 h-4 text-green-600">
+                     class="w-4 h-4 text-[var(--brand-green)]">
               Roof ($12,000)
             </label>
 
             <label class="flex items-center gap-2">
               <input type="checkbox" name="repairs" value="8000"
-                     class="w-4 h-4 text-green-600">
+                     class="w-4 h-4 text-[var(--brand-green)]">
               HVAC ($8,000)
             </label>
 
             <label class="flex items-center gap-2">
               <input type="checkbox" name="repairs" value="20000"
-                     class="w-4 h-4 text-green-600">
+                     class="w-4 h-4 text-[var(--brand-green)]">
               Kitchen ($20,000)
             </label>
 
             <label class="flex items-center gap-2">
               <input type="checkbox" name="repairs" value="12000"
-                     class="w-4 h-4 text-green-600">
+                     class="w-4 h-4 text-[var(--brand-green)]">
               Bathrooms ($12,000)
             </label>
 
             <label class="flex items-center gap-2">
               <input type="checkbox" name="repairs" value="7000"
-                     class="w-4 h-4 text-green-600">
+                     class="w-4 h-4 text-[var(--brand-green)]">
               Flooring / Paint ($7,000)
             </label>
 
@@ -84,8 +93,8 @@
 
         <!-- Submit -->
         <button type="submit"
-          class="w-full bg-green-700 text-white py-3 rounded-lg text-lg
-                 hover:bg-green-800 transition duration-200
+          class="w-full bg-[var(--brand-green)] text-white py-3 rounded-lg text-lg 
+                 hover:bg-[var(--brand-green-dark)] transition duration-200
                  shadow-md hover:shadow-lg hover:-translate-y-0.5">
           Calculate My Offer
         </button>
@@ -100,15 +109,16 @@
   </div>
 </section>
 
+
 <!-- TRUST STRIP -->
-<section class="bg-gray-50 py-16">
+<section class="py-16 bg-[var(--brand-green-light)]/40 fade-section">
   <div class="max-w-5xl mx-auto px-6 text-center">
 
     <h3 class="text-xl font-bold mb-4">
       Why Use Our Estimator?
     </h3>
 
-    <div class="flex justify-center gap-6 text-gray-600 text-sm flex-wrap">
+    <div class="flex justify-center gap-6 text-gray-700 text-sm flex-wrap">
       <span>✔ No signup required</span>
       <span>✔ Honest local buyers</span>
       <span>✔ Sell as-is</span>
@@ -116,6 +126,24 @@
     </div>
 
   </div>
+</section>
+
+
+<!-- FINAL CTA -->
+<section class="bg-[var(--brand-green)] py-20 text-white text-center fade-section">
+  <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+    Want a full real offer instead of an estimate?
+  </h2>
+
+  <p class="mb-8 text-lg">
+    We’ll review your property and give you a real written offer — no obligation.
+  </p>
+
+  <a href="{{ url_for('contact') }}"
+     class="bg-white text-brand px-8 py-4 rounded-lg text-lg font-semibold 
+            hover:bg-gray-100 transition shadow-md hover:shadow-lg">
+    Talk To A Local Buyer
+  </a>
 </section>
 
 {% endblock %}

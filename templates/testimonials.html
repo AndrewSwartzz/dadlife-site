@@ -3,15 +3,21 @@
 
 {% block content %}
 
-<!-- HERO -->
-<section class="bg-gradient-to-br from-green-200 via-white to-gray-50 py-20">
-  <div class="max-w-6xl mx-auto px-6 text-center">
+<!-- HERO WITH BACKGROUND IMAGE -->
+<section class="relative overflow-hidden bg-cover bg-center fade-section"
+  style="background-image: url('{{ url_for('static', filename='images/hero-bg.jpg') }}');">
+
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <!-- Hero Content -->
+  <div class="relative max-w-7xl mx-auto px-6 py-24 text-center text-white">
 
     <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
       What Local Homeowners Are Saying
     </h1>
 
-    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+    <p class="text-lg text-gray-200 max-w-3xl mx-auto">
       Selling a home is a big decision. Here’s what families across the Lehigh Valley
       have said about working with us.
     </p>
@@ -19,19 +25,25 @@
   </div>
 </section>
 
+
 <!-- TESTIMONIAL CARDS -->
-<section class="py-20 bg-gray-50">
+<section class="py-20 bg-gray-50 fade-section">
   <div class="max-w-6xl mx-auto px-6">
 
     <div class="grid md:grid-cols-3 gap-8">
 
       <!-- Testimonial -->
-      <div class="bg-white p-6 rounded-xl shadow 
-                  hover:shadow-xl transition duration-200 hover:-translate-y-1">
+      <div class="bg-white p-8 rounded-xl shadow 
+                  hover:shadow-xl transition hover:-translate-y-1">
 
         <!-- Stars -->
-        <div class="text-green-600 mb-3">
-          ★★★★★
+        <div class="flex gap-1 mb-4">
+          {% for i in range(5) %}
+          <span class="flex items-center justify-center w-6 h-6 rounded-full 
+                       bg-[var(--brand-green)] text-white text-xs font-bold shadow">
+            ★
+          </span>
+          {% endfor %}
         </div>
 
         <p class="text-gray-700 mb-4">
@@ -39,15 +51,21 @@
           simple and stress-free. Honest, fair, and easy to work with.”
         </p>
 
-        <p class="font-semibold">— Sarah M., Bethlehem</p>
+        <p class="font-semibold text-gray-900">— Sarah M., Bethlehem</p>
       </div>
 
-      <!-- Testimonial -->
-      <div class="bg-white p-6 rounded-xl shadow 
-                  hover:shadow-xl transition duration-200 hover:-translate-y-1">
 
-        <div class="text-green-600 mb-3">
-          ★★★★★
+      <!-- Testimonial -->
+      <div class="bg-white p-8 rounded-xl shadow 
+                  hover:shadow-xl transition hover:-translate-y-1">
+
+        <div class="flex gap-1 mb-4">
+          {% for i in range(5) %}
+          <span class="flex items-center justify-center w-6 h-6 rounded-full 
+                       bg-[var(--brand-green)] text-white text-xs font-bold shadow">
+            ★
+          </span>
+          {% endfor %}
         </div>
 
         <p class="text-gray-700 mb-4">
@@ -55,15 +73,21 @@
           closed fast. No pressure at all.”
         </p>
 
-        <p class="font-semibold">— Mike R., Allentown</p>
+        <p class="font-semibold text-gray-900">— Mike R., Allentown</p>
       </div>
 
-      <!-- Testimonial -->
-      <div class="bg-white p-6 rounded-xl shadow 
-                  hover:shadow-xl transition duration-200 hover:-translate-y-1">
 
-        <div class="text-green-600 mb-3">
-          ★★★★★
+      <!-- Testimonial -->
+      <div class="bg-white p-8 rounded-xl shadow 
+                  hover:shadow-xl transition hover:-translate-y-1">
+
+        <div class="flex gap-1 mb-4">
+          {% for i in range(5) %}
+          <span class="flex items-center justify-center w-6 h-6 rounded-full 
+                       bg-[var(--brand-green)] text-white text-xs font-bold shadow">
+            ★
+          </span>
+          {% endfor %}
         </div>
 
         <p class="text-gray-700 mb-4">
@@ -71,15 +95,16 @@
           me understand my options. Highly recommend.”
         </p>
 
-        <p class="font-semibold">— Jessica L., Easton</p>
+        <p class="font-semibold text-gray-900">— Jessica L., Easton</p>
       </div>
 
     </div>
   </div>
 </section>
 
+
 <!-- TRUST STRIP -->
-<section class="py-16">
+<section class="py-16 bg-white fade-section">
   <div class="max-w-5xl mx-auto px-6 text-center">
 
     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
@@ -91,18 +116,48 @@
       fair solutions, and respectful service.
     </p>
 
-    <div class="flex justify-center gap-6 text-gray-600 text-sm">
-      <span>✔ Family-Owned</span>
-      <span>✔ No Pressure</span>
-      <span>✔ Fair Offers</span>
-      <span>✔ Local Service</span>
+    <div class="flex justify-center gap-6 text-gray-700 text-sm flex-wrap">
+
+      <span class="flex items-center gap-2">
+        <span class="flex items-center justify-center w-5 h-5 rounded-full 
+                     bg-[var(--brand-green)] text-white text-xs font-bold shadow">
+          ✔
+        </span>
+        Family-Owned
+      </span>
+
+      <span class="flex items-center gap-2">
+        <span class="flex items-center justify-center w-5 h-5 rounded-full 
+                     bg-[var(--brand-green)] text-white text-xs font-bold shadow">
+          ✔
+        </span>
+        No Pressure
+      </span>
+
+      <span class="flex items-center gap-2">
+        <span class="flex items-center justify-center w-5 h-5 rounded-full 
+                     bg-[var(--brand-green)] text-white text-xs font-bold shadow">
+          ✔
+        </span>
+        Fair Offers
+      </span>
+
+      <span class="flex items-center gap-2">
+        <span class="flex items-center justify-center w-5 h-5 rounded-full 
+                     bg-[var(--brand-green)] text-white text-xs font-bold shadow">
+          ✔
+        </span>
+        Local Service
+      </span>
+
     </div>
 
   </div>
 </section>
 
+
 <!-- FINAL CTA -->
-<section class="bg-gradient-to-r from-green-700 to-green-800 py-20 text-white text-center">
+<section class="bg-[var(--brand-green)] py-20 text-white text-center fade-section">
   <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
     Ready to Get Your Own Stress-Free Offer?
   </h2>
@@ -112,8 +167,8 @@
   </p>
 
   <a href="{{ url_for('offer') }}"
-     class="bg-white text-green-700 px-8 py-4 rounded-lg text-lg font-semibold 
-            hover:bg-gray-100 transition duration-200 shadow-md hover:shadow-lg">
+     class="bg-white text-brand px-8 py-4 rounded-lg text-lg font-semibold 
+            hover:bg-gray-100 transition shadow-md hover:shadow-lg">
     Get My Offer Estimate
   </a>
 </section>
