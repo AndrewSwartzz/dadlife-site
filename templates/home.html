@@ -4,6 +4,7 @@
 {% block content %}
 
 <!-- HERO WITH BACKGROUND IMAGE -->
+
 <section class="relative overflow-hidden bg-cover bg-center fade-section"
   style="background-image: url('{{ url_for('static', filename='images/hero-bg.jpg') }}');">
 
@@ -13,7 +14,7 @@
   <!-- Hero Content -->
   <div class="relative max-w-7xl mx-auto px-6 py-28 grid md:grid-cols-2 gap-12 items-center text-white">
 
-    <!-- LEFT: Text -->
+    <!-- LEFT -->
     <div class="max-w-xl">
 
       <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
@@ -44,32 +45,18 @@
 
       </div>
 
-      <!-- Trust badges -->
+      <!-- Trust Badges -->
       <div class="flex gap-6 mt-6 text-sm text-gray-200 flex-wrap">
 
+        {% for item in ["Local Family-Owned","No Fees","Close in Days"] %}
         <span class="flex items-center gap-2">
           <span class="flex items-center justify-center w-5 h-5 rounded-full 
                        bg-[var(--brand-green)] text-white text-xs font-bold shadow">
             ✔
           </span>
-          Local Family-Owned
+          {{ item }}
         </span>
-
-        <span class="flex items-center gap-2">
-          <span class="flex items-center justify-center w-5 h-5 rounded-full 
-                       bg-[var(--brand-green)] text-white text-xs font-bold shadow">
-            ✔
-          </span>
-          No Fees
-        </span>
-
-        <span class="flex items-center gap-2">
-          <span class="flex items-center justify-center w-5 h-5 rounded-full 
-                       bg-[var(--brand-green)] text-white text-xs font-bold shadow">
-            ✔
-          </span>
-          Close in Days
-        </span>
+        {% endfor %}
 
       </div>
     </div>
@@ -95,37 +82,20 @@
 
     <ul class="grid md:grid-cols-2 gap-6 text-left text-lg">
 
+      {% for item in [
+        "You need to sell quickly",
+        "The property needs repairs",
+        "You inherited a home",
+        "You don’t want showings or listings"
+      ] %}
       <li class="flex items-center gap-3">
         <span class="flex items-center justify-center w-6 h-6 rounded-full 
                      bg-[var(--brand-green)] text-white text-sm font-bold shadow">
           ✔
         </span>
-        You need to sell quickly
+        {{ item }}
       </li>
-
-      <li class="flex items-center gap-3">
-        <span class="flex items-center justify-center w-6 h-6 rounded-full 
-                     bg-[var(--brand-green)] text-white text-sm font-bold shadow">
-          ✔
-        </span>
-        The property needs repairs
-      </li>
-
-      <li class="flex items-center gap-3">
-        <span class="flex items-center justify-center w-6 h-6 rounded-full 
-                     bg-[var(--brand-green)] text-white text-sm font-bold shadow">
-          ✔
-        </span>
-        You inherited a home
-      </li>
-
-      <li class="flex items-center gap-3">
-        <span class="flex items-center justify-center w-6 h-6 rounded-full 
-                     bg-[var(--brand-green)] text-white text-sm font-bold shadow">
-          ✔
-        </span>
-        You don’t want showings or listings
-      </li>
+      {% endfor %}
 
     </ul>
 
@@ -145,38 +115,34 @@
 
     <div class="grid md:grid-cols-3 gap-8 text-center">
 
+      {% for step in [
+        ("1","Tell Us About the Property","Share a few details about your home."),
+        ("2","Get an Honest Offer","A real offer range — no obligation."),
+        ("3","Close On Your Timeline","Pick the closing date that works for you.")
+      ] %}
       <div class="bg-gray-50 p-8 rounded-xl shadow hover:shadow-xl transition hover:-translate-y-1">
-        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-brand-light flex items-center justify-center text-brand font-bold text-xl">1</div>
-        <h3 class="font-bold text-xl mb-3">Tell Us About the Property</h3>
-        <p>Share a few details about your home.</p>
+        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-brand-light flex items-center justify-center text-brand font-bold text-xl">
+          {{ step[0] }}
+        </div>
+        <h3 class="font-bold text-xl mb-3">{{ step[1] }}</h3>
+        <p>{{ step[2] }}</p>
       </div>
-
-      <div class="bg-gray-50 p-8 rounded-xl shadow hover:shadow-xl transition hover:-translate-y-1">
-        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-brand-light flex items-center justify-center text-brand font-bold text-xl">2</div>
-        <h3 class="font-bold text-xl mb-3">Get an Honest Offer</h3>
-        <p>A real offer range — no obligation.</p>
-      </div>
-
-      <div class="bg-gray-50 p-8 rounded-xl shadow hover:shadow-xl transition hover:-translate-y-1">
-        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-brand-light flex items-center justify-center text-brand font-bold text-xl">3</div>
-        <h3 class="font-bold text-xl mb-3">Close On Your Timeline</h3>
-        <p>Pick the closing date that works for you.</p>
-      </div>
+      {% endfor %}
 
     </div>
   </div>
 </section>
 
-<!-- LOCAL TRUST -->
-<section class="relative py-20 fade-section bg-cover bg-center"
-         style="background-image: url('{{ url_for('static', filename='images/section-bg.jpg') }}');">
+<section class="relative fade-section bg-cover bg-center"
+ style="background-image: url('{{ url_for('static', filename='images/section-bg.jpg') }}');">
 
   <div class="absolute inset-0 bg-black/50"></div>
 
-  <div class="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center text-white">
+  <div class="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-stretch text-white">
 
-    <div>
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6 text-white">
+    <!-- Text -->
+    <div class="py-16">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
         Local family. Honest conversations.
       </h2>
 
@@ -186,42 +152,32 @@
       </p>
 
       <ul class="space-y-3 text-lg">
-
         <li class="flex items-center gap-3">
-          <span class="flex items-center justify-center w-6 h-6 rounded-full 
-                       bg-[var(--brand-green)] text-white text-sm font-bold shadow">
-            ✔
-          </span>
+          <span class="w-6 h-6 rounded-full bg-[var(--brand-green)] text-white flex items-center justify-center text-sm font-bold">✔</span>
           Local & family-owned
         </li>
-
         <li class="flex items-center gap-3">
-          <span class="flex items-center justify-center w-6 h-6 rounded-full 
-                       bg-[var(--brand-green)] text-white text-sm font-bold shadow">
-            ✔
-          </span>
+          <span class="w-6 h-6 rounded-full bg-[var(--brand-green)] text-white flex items-center justify-center text-sm font-bold">✔</span>
           No hidden fees
         </li>
-
         <li class="flex items-center gap-3">
-          <span class="flex items-center justify-center w-6 h-6 rounded-full 
-                       bg-[var(--brand-green)] text-white text-sm font-bold shadow">
-            ✔
-          </span>
+          <span class="w-6 h-6 rounded-full bg-[var(--brand-green)] text-white flex items-center justify-center text-sm font-bold">✔</span>
           Honest advice
         </li>
-
       </ul>
     </div>
 
-    <div class="flex justify-center">
+    <!-- Image -->
+    <div class="flex justify-center items-end">
       <img src="{{ url_for('static', filename='images/family.png') }}"
-           class="rounded-xl shadow-lg w-[300px] md:w-[360px] object-contain"
+           class="rounded-xl shadow-lg w-[320px] md:w-[420px] object-contain"
            alt="Family photo">
     </div>
 
   </div>
 </section>
+
+
 
 <!-- FINAL CTA -->
 <section class="bg-[var(--brand-green)] py-20 text-white text-center fade-section">
