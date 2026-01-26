@@ -1,179 +1,101 @@
 {% extends "base.html" %}
-{% block title %}Our Projects | Dadlife Property Solutions{% endblock %}
+{% block title %}Our Recent Projects{% endblock %}
 
 {% block content %}
 
-<!-- HERO WITH BACKGROUND IMAGE -->
-<section class="relative overflow-hidden bg-cover bg-[position:center_65%] fade-section"
-  style="background-image: url('{{ url_for('static', filename='images/rennovate.jpg') }}');">
-
-  <!-- Dark overlay -->
-  <div class="absolute inset-0 bg-black/60"></div>
-
-  <!-- Hero Content -->
-  <div class="relative max-w-5xl mx-auto px-6 py-24 text-center text-white">
-
-    <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-      Let’s Talk About Your Property
-    </h1>
-
-    <p class="text-lg text-gray-200 max-w-3xl mx-auto">
-      Whether you used our offer estimator or just want to ask a question,
-      we’re here to help. No pressure. No obligation.
+<!-- PAGE HEADER -->
+<section class="bg-[var(--brand-green-light)]/40 py-20 fade-section">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <h1 class="text-4xl font-bold mb-4">Recent Projects</h1>
+    <p class="text-gray-700 text-lg">
+      A few homes we’ve helped transform right here in the Lehigh Valley.
     </p>
-
   </div>
 </section>
 
 
+<!-- PROJECT CARDS -->
+<section class="py-20 bg-white fade-section">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
 
-<!-- PROJECT GRID -->
-<section class="py-20 bg-gray-50 fade-section">
-  <div class="max-w-6xl mx-auto px-6">
+    <!-- Project 1 -->
+    <div class="group perspective">
+      <div class="relative w-full h-[320px] transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
 
-    <div class="grid md:grid-cols-3 gap-10">
-
-      <!-- PROJECT CARD -->
-      <div class="text-center group">
-
-        <div class="flip-card mx-auto rounded-2xl shadow-xl ring-1 ring-gray-200">
-          <div class="flip-inner rounded-2xl">
-
-            <!-- BEFORE -->
-            <div class="flip-front">
-              <img src="{{ url_for('static', filename='images/project1_before.jpg') }}"
-                   class="rounded-2xl object-cover w-full h-64"
-                   alt="Before renovation">
-              <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-sm py-2 rounded-b-2xl">
-                Before
-              </div>
-            </div>
-
-            <!-- AFTER -->
-            <div class="flip-back">
-              <img src="{{ url_for('static', filename='images/project1_after.jpg') }}"
-                   class="rounded-2xl object-cover w-full h-64"
-                   alt="After renovation">
-              <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-sm py-2 rounded-b-2xl">
-                After
-              </div>
-            </div>
-
+        <!-- Front (Before) -->
+        <div class="absolute inset-0 backface-hidden rounded-xl overflow-hidden shadow-lg">
+          <img src="{{ url_for('static', filename='images/johnston-before.png') }}"
+               class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-black/40 flex items-end">
+            <p class="text-white font-semibold p-4">
+              Before – 386 Johnston Dr, Bethlehem PA
+            </p>
           </div>
         </div>
 
-        <p class="mt-4 font-semibold text-gray-900">Bethlehem Renovation</p>
-        <p class="text-sm text-gray-600">Full interior remodel</p>
-      </div>
-
-
-      <!-- PROJECT CARD -->
-      <div class="text-center group">
-
-        <div class="flip-card mx-auto rounded-2xl shadow-xl ring-1 ring-gray-200">
-          <div class="flip-inner rounded-2xl">
-
-            <div class="flip-front">
-              <img src="{{ url_for('static', filename='images/project2_before.jpg') }}"
-                   class="rounded-2xl object-cover w-full h-64">
-              <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-sm py-2 rounded-b-2xl">
-                Before
-              </div>
-            </div>
-
-            <div class="flip-back">
-              <img src="{{ url_for('static', filename='images/project2_after.jpg') }}"
-                   class="rounded-2xl object-cover w-full h-64">
-              <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-sm py-2 rounded-b-2xl">
-                After
-              </div>
-            </div>
-
+        <!-- Back (After) -->
+        <div class="absolute inset-0 backface-hidden rotate-y-180 rounded-xl overflow-hidden shadow-lg">
+          <img src="{{ url_for('static', filename='images/johnston-after.png') }}"
+               class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-black/40 flex items-end">
+            <p class="text-white font-semibold p-4">
+              After – 386 Johnston Dr, Bethlehem PA
+            </p>
           </div>
         </div>
 
-        <p class="mt-4 font-semibold text-gray-900">Allentown Property</p>
-        <p class="text-sm text-gray-600">Kitchen & exterior upgrade</p>
       </div>
-
-
-      <!-- PROJECT CARD -->
-      <div class="text-center group">
-
-        <div class="flip-card mx-auto rounded-2xl shadow-xl ring-1 ring-gray-200">
-          <div class="flip-inner rounded-2xl">
-
-            <div class="flip-front">
-              <img src="{{ url_for('static', filename='images/project3_before.jpg') }}"
-                   class="rounded-2xl object-cover w-full h-64">
-              <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-sm py-2 rounded-b-2xl">
-                Before
-              </div>
-            </div>
-
-            <div class="flip-back">
-              <img src="{{ url_for('static', filename='images/project3_after.jpg') }}"
-                   class="rounded-2xl object-cover w-full h-64">
-              <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-sm py-2 rounded-b-2xl">
-                After
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <p class="mt-4 font-semibold text-gray-900">Easton Flip</p>
-        <p class="text-sm text-gray-600">Complete home modernization</p>
-      </div>
-
     </div>
+
+
+    <!-- Project 2 -->
+    <div class="group perspective">
+      <div class="relative w-full h-[320px] transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+
+        <!-- Front (Before) -->
+        <div class="absolute inset-0 backface-hidden rounded-xl overflow-hidden shadow-lg">
+          <img src="{{ url_for('static', filename='images/pleasant-before.png') }}"
+               class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-black/40 flex items-end">
+            <p class="text-white font-semibold p-4">
+              Before – 1660 Pleasant View Rd, Bethlehem PA
+            </p>
+          </div>
+        </div>
+
+        <!-- Back (After) -->
+        <div class="absolute inset-0 backface-hidden rotate-y-180 rounded-xl overflow-hidden shadow-lg">
+          <img src="{{ url_for('static', filename='images/pleasant-after.png') }}"
+               class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-black/40 flex items-end">
+            <p class="text-white font-semibold p-4">
+              After – 1660 Pleasant View Rd, Bethlehem PA
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
 
-<!-- FINAL CTA -->
-<section class="bg-[var(--brand-green)] py-20 text-white text-center fade-section">
-  <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-    Want a Stress-Free Home Sale?
-  </h2>
-
-  <p class="mb-8 text-lg">
-    Get a realistic offer range for your home in minutes.
-  </p>
-
-  <a href="{{ url_for('offer') }}"
-     class="bg-white text-brand px-8 py-4 rounded-lg text-lg font-semibold 
-            hover:bg-gray-100 transition shadow-md hover:shadow-lg">
-    Get My Offer Estimate
-  </a>
-</section>
-
-
-<!-- FLIP CARD CSS -->
+<!-- REQUIRED FLIP CARD STYLES -->
 <style>
-.flip-card {
+.perspective {
   perspective: 1200px;
 }
-
-.flip-inner {
-  position: relative;
-  width: 100%;
-  height: 16rem;
-  transition: transform 0.8s ease;
+.transform-style-preserve-3d {
   transform-style: preserve-3d;
 }
-
-.flip-card:hover .flip-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-front, .flip-back {
-  position: absolute;
-  inset: 0;
+.backface-hidden {
   backface-visibility: hidden;
 }
-
-.flip-back {
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+.group-hover\:rotate-y-180:hover {
   transform: rotateY(180deg);
 }
 </style>
