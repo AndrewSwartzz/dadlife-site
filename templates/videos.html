@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block title %}Videos & Vlogs{% endblock %}
+
+{% block content %}
+
+<!-- PAGE HEADER -->
+<section class="bg-[var(--brand-green-light)]/40 py-20 fade-section">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <h1 class="text-4xl font-bold mb-4">Video Resources</h1>
+    <p class="text-gray-700 text-lg">
+      Example text
+    </p>
+  </div>
+</section>
+
+<!-- VIDEO SECTION 1 -->
+<section class="py-20 bg-white fade-section">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+
+    <!-- Text -->
+    <div>
+      <h2 class="text-3xl font-bold mb-4">
+        Example text
+      </h2>
+
+      <p class="text-gray-700 mb-6">
+        Example text
+      </p>
+
+      <p class="text-gray-700 mb-6">
+        Example text
+      </p>
+
+      <p class="text-sm text-gray-500 italic">
+        Example text
+      </p>
+    </div>
+
+    <!-- Video Placeholder -->
+    <div class="bg-gray-100 rounded-xl shadow-lg p-8 text-center">
+      <div class="aspect-video bg-gray-300 rounded-lg flex items-center justify-center mb-4">
+        <span class="text-gray-600 font-medium">
+          Video Embed Placeholder
+        </span>
+      </div>
+
+      <p class="font-semibold">
+        Example text
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- VIDEO SECTION 2 -->
+<section class="py-20 bg-gray-50 fade-section">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+
+    <!-- Text -->
+    <div>
+      <h2 class="text-3xl font-bold mb-4">
+        Example text
+      </h2>
+
+      <p class="text-gray-700 mb-6">
+        Example text
+      </p>
+
+      <p class="text-gray-700 mb-6">
+        Example text
+      </p>
+
+      <p class="text-sm text-gray-500 italic">
+        Example text
+      </p>
+    </div>
+
+    <!-- Video Placeholder -->
+    <div class="bg-gray-100 rounded-xl shadow-lg p-8 text-center">
+      <div class="aspect-video bg-gray-300 rounded-lg flex items-center justify-center mb-4">
+        <span class="text-gray-600 font-medium">
+          Video Embed Placeholder
+        </span>
+      </div>
+
+      <p class="font-semibold">
+        Example text
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CTA (UNCHANGED BUTTON) -->
+<section class="bg-[var(--brand-green)] py-20 text-white text-center fade-section">
+  <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+    Want a quick idea of what your home could sell for?
+  </h2>
+
+  <p class="mb-8 text-lg">
+    Try our free estimator. No signup. No pressure.
+  </p>
+
+  <a href="{{ url_for('offer') }}"
+     class="bg-white text-brand px-8 py-4 rounded-lg text-lg font-semibold 
+            hover:bg-gray-100 transition shadow-md hover:shadow-lg">
+    See My Offer Range
+  </a>
+</section>
+
+{% endblock %}

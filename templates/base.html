@@ -28,15 +28,18 @@
       transform: translateY(20px);
       transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
+
     .fade-section.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* HERO background control */
+    /* HERO BACKGROUND POSITION CONTROL */
     .hero-bg {
       background-position: center;
     }
+
+    /* Mobile: shift background image slightly */
     @media (max-width: 768px) {
       .hero-bg {
         background-position: 70% center;
@@ -86,8 +89,9 @@
         About
       </a>
 
-      <!-- AREAS DROPDOWN -->
+      <!-- Areas Dropdown -->
       <div class="relative group">
+
         <button class="hover:text-brand flex items-center gap-1">
           Areas
           <svg class="w-4 h-4 mt-1 transition-transform duration-200 group-hover:rotate-180"
@@ -124,6 +128,11 @@
         Projects
       </a>
 
+      <a href="{{ url_for('videos') }}"
+         class="{% if request.path == '/videos' %}text-brand font-semibold{% else %}hover:text-brand{% endif %}">
+        Videos
+      </a>
+
       <a href="{{ url_for('contact') }}"
          class="{% if request.path == '/contact' %}text-brand font-semibold{% else %}hover:text-brand{% endif %}">
         Contact
@@ -135,7 +144,7 @@
       </a>
     </div>
 
-    <!-- Mobile menu button -->
+    <!-- Mobile Menu Button -->
     <button class="md:hidden" onclick="toggleMenu()">
       <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2"
            viewBox="0 0 24 24">
@@ -152,7 +161,6 @@
       <a href="{{ url_for('home') }}" class="block">Home</a>
       <a href="{{ url_for('about') }}" class="block">About</a>
 
-      <!-- Mobile Areas -->
       <p class="font-semibold mt-2">Areas</p>
       <a href="/areas/allentown" class="block pl-4">Allentown</a>
       <a href="/areas/bethlehem" class="block pl-4">Bethlehem</a>
@@ -160,6 +168,7 @@
 
       <a href="{{ url_for('testimonials') }}" class="block">Testimonials</a>
       <a href="{{ url_for('projects') }}" class="block">Projects</a>
+      <a href="{{ url_for('videos') }}" class="block">Videos</a>
       <a href="{{ url_for('contact') }}" class="block">Contact</a>
 
       <a href="{{ url_for('offer') }}"

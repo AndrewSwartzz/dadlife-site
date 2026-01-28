@@ -83,11 +83,7 @@
         "You don’t want showings or listings"
       ] %}
       <li class="flex items-center gap-3">
-        <span class="flex items-center justify-center w-6 h-6 rounded-full bg-[var(--brand-green)] shadow">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-          </svg>
-        </span>
+        <span class="text-green-600 text-xl">✔</span>
         {{ item }}
       </li>
       {% endfor %}
@@ -134,7 +130,8 @@
 
   <div class="absolute inset-0 bg-black/50"></div>
 
-  <div class="relative max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center text-white">
+  <!-- ✨ No vertical padding here on desktop -->
+  <div class="relative max-w-7xl mx-auto px-6 py-10 md:py-0 grid md:grid-cols-2 gap-12 items-center text-white">
 
     <!-- Text -->
     <div>
@@ -161,7 +158,7 @@
       </ul>
     </div>
 
-    <!-- Image -->
+    <!-- Image defines section height -->
     <div class="flex justify-center items-end">
       <img src="{{ url_for('static', filename='images/family.png') }}"
            class="rounded-xl shadow-lg w-[320px] md:w-[420px] object-contain"

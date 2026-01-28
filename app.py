@@ -234,6 +234,11 @@ def projects():
 def book():
     return render_template("book.html")
 
+@app.route("/videos")
+def videos():
+    return render_template("videos.html")
+
+
 import re
 
 def get_property_estimate(address):
