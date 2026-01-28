@@ -7,10 +7,8 @@
 <section class="relative overflow-hidden bg-cover bg-[position:center_45%] fade-section"
   style="background-image: url('{{ url_for('static', filename=city.image) }}');">
 
-  <!-- Dark overlay -->
   <div class="absolute inset-0 bg-black/60"></div>
 
-  <!-- Hero Content -->
   <div class="relative max-w-7xl mx-auto px-6 py-24 text-center text-white">
 
     <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
@@ -57,33 +55,39 @@
 
     <div class="grid md:grid-cols-3 gap-8">
 
+      <!-- Card -->
       <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition hover:-translate-y-1">
         <div class="flex justify-center mb-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full 
-                       bg-[var(--brand-green)] text-white text-lg font-bold shadow">
-            ✔
+          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-[var(--brand-green)] shadow">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+            </svg>
           </span>
         </div>
         <h3 class="font-bold text-xl mb-3">Sell As-Is</h3>
         <p>No repairs, cleaning, or upgrades needed.</p>
       </div>
 
+      <!-- Card -->
       <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition hover:-translate-y-1">
         <div class="flex justify-center mb-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full 
-                       bg-[var(--brand-green)] text-white text-lg font-bold shadow">
-            ✔
+          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-[var(--brand-green)] shadow">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+            </svg>
           </span>
         </div>
         <h3 class="font-bold text-xl mb-3">Close Fast</h3>
         <p>Choose a closing date that fits your timeline.</p>
       </div>
 
+      <!-- Card -->
       <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition hover:-translate-y-1">
         <div class="flex justify-center mb-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full 
-                       bg-[var(--brand-green)] text-white text-lg font-bold shadow">
-            ✔
+          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-[var(--brand-green)] shadow">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+            </svg>
           </span>
         </div>
         <h3 class="font-bold text-xl mb-3">Local & Trusted</h3>

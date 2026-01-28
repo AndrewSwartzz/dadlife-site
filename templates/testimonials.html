@@ -7,10 +7,8 @@
 <section class="relative overflow-hidden bg-cover bg-center fade-section"
   style="background-image: url('{{ url_for('static', filename='images/hero-bg.jpg') }}');">
 
-  <!-- Dark overlay -->
   <div class="absolute inset-0 bg-black/60"></div>
 
-  <!-- Hero Content -->
   <div class="relative max-w-7xl mx-auto px-6 py-24 text-center text-white">
 
     <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
@@ -33,15 +31,15 @@
     <div class="grid md:grid-cols-3 gap-8">
 
       <!-- Testimonial -->
-      <div class="bg-white p-8 rounded-xl shadow 
-                  hover:shadow-xl transition hover:-translate-y-1">
+      <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition hover:-translate-y-1">
 
         <!-- Stars -->
         <div class="flex gap-1 mb-4">
           {% for i in range(5) %}
-          <span class="flex items-center justify-center w-6 h-6 rounded-full 
-                       bg-[var(--brand-green)] text-white text-xs font-bold shadow">
-            ★
+          <span class="flex items-center justify-center w-6 h-6 rounded-full bg-[var(--brand-green)] shadow">
+            <svg class="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z"/>
+            </svg>
           </span>
           {% endfor %}
         </div>
@@ -56,14 +54,14 @@
 
 
       <!-- Testimonial -->
-      <div class="bg-white p-8 rounded-xl shadow 
-                  hover:shadow-xl transition hover:-translate-y-1">
+      <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition hover:-translate-y-1">
 
         <div class="flex gap-1 mb-4">
           {% for i in range(5) %}
-          <span class="flex items-center justify-center w-6 h-6 rounded-full 
-                       bg-[var(--brand-green)] text-white text-xs font-bold shadow">
-            ★
+          <span class="flex items-center justify-center w-6 h-6 rounded-full bg-[var(--brand-green)] shadow">
+            <svg class="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z"/>
+            </svg>
           </span>
           {% endfor %}
         </div>
@@ -78,14 +76,14 @@
 
 
       <!-- Testimonial -->
-      <div class="bg-white p-8 rounded-xl shadow 
-                  hover:shadow-xl transition hover:-translate-y-1">
+      <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition hover:-translate-y-1">
 
         <div class="flex gap-1 mb-4">
           {% for i in range(5) %}
-          <span class="flex items-center justify-center w-6 h-6 rounded-full 
-                       bg-[var(--brand-green)] text-white text-xs font-bold shadow">
-            ★
+          <span class="flex items-center justify-center w-6 h-6 rounded-full bg-[var(--brand-green)] shadow">
+            <svg class="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z"/>
+            </svg>
           </span>
           {% endfor %}
         </div>
@@ -118,37 +116,16 @@
 
     <div class="flex justify-center gap-6 text-gray-700 text-sm flex-wrap">
 
+      {% for item in ["Family-Owned","No Pressure","Fair Offers","Local Service"] %}
       <span class="flex items-center gap-2">
-        <span class="flex items-center justify-center w-5 h-5 rounded-full 
-                     bg-[var(--brand-green)] text-white text-xs font-bold shadow">
-          ✔
+        <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[var(--brand-green)] shadow">
+          <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
         </span>
-        Family-Owned
+        {{ item }}
       </span>
-
-      <span class="flex items-center gap-2">
-        <span class="flex items-center justify-center w-5 h-5 rounded-full 
-                     bg-[var(--brand-green)] text-white text-xs font-bold shadow">
-          ✔
-        </span>
-        No Pressure
-      </span>
-
-      <span class="flex items-center gap-2">
-        <span class="flex items-center justify-center w-5 h-5 rounded-full 
-                     bg-[var(--brand-green)] text-white text-xs font-bold shadow">
-          ✔
-        </span>
-        Fair Offers
-      </span>
-
-      <span class="flex items-center gap-2">
-        <span class="flex items-center justify-center w-5 h-5 rounded-full 
-                     bg-[var(--brand-green)] text-white text-xs font-bold shadow">
-          ✔
-        </span>
-        Local Service
-      </span>
+      {% endfor %}
 
     </div>
 
