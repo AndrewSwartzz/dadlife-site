@@ -4,7 +4,7 @@
 {% block content %}
 
 <!-- HERO WITH BACKGROUND IMAGE -->
-<section class="relative overflow-hidden bg-cover bg-center fade-section"
+<section class="relative overflow-hidden bg-cover bg-[position:center_45%] fade-section"
   style="background-image: url('{{ url_for('static', filename='images/home.jpg') }}');">
 
   <!-- Dark overlay -->
@@ -36,7 +36,6 @@
         Property Details
       </h2>
 
-      <!-- Error Message -->
       {% if error %}
         <p class="text-red-600 text-center mb-4 font-medium">
           {{ error }}
@@ -45,53 +44,36 @@
 
       <form method="POST" class="space-y-6">
 
-        <!-- Address -->
         <input name="address" required
           placeholder="Property Address (ex: 123 Main St, Allentown, PA 18102)"
           class="w-full border border-gray-300 p-3 rounded-lg
                  focus:ring-2 focus:ring-[var(--brand-green)]
                  focus:outline-none">
 
-        <!-- Repairs -->
         <div>
           <p class="font-semibold mb-3">Select Any Needed Repairs:</p>
 
           <div class="space-y-2 text-gray-700">
 
-            <label class="flex items-center gap-2">
-              <input type="checkbox" name="repairs" value="12000"
+            {% for label, cost in [
+              ('Roof',12000),
+              ('HVAC',8000),
+              ('Kitchen',20000),
+              ('Bathrooms',12000),
+              ('Flooring / Paint',7000)
+            ] %}
+
+            <label class="flex items-center gap-3">
+              <input type="checkbox" name="repairs" value="{{ cost }}"
                      class="w-4 h-4 text-[var(--brand-green)]">
-              Roof ($12,000)
+              {{ label }} (${{ "{:,}".format(cost) }})
             </label>
 
-            <label class="flex items-center gap-2">
-              <input type="checkbox" name="repairs" value="8000"
-                     class="w-4 h-4 text-[var(--brand-green)]">
-              HVAC ($8,000)
-            </label>
-
-            <label class="flex items-center gap-2">
-              <input type="checkbox" name="repairs" value="20000"
-                     class="w-4 h-4 text-[var(--brand-green)]">
-              Kitchen ($20,000)
-            </label>
-
-            <label class="flex items-center gap-2">
-              <input type="checkbox" name="repairs" value="12000"
-                     class="w-4 h-4 text-[var(--brand-green)]">
-              Bathrooms ($12,000)
-            </label>
-
-            <label class="flex items-center gap-2">
-              <input type="checkbox" name="repairs" value="7000"
-                     class="w-4 h-4 text-[var(--brand-green)]">
-              Flooring / Paint ($7,000)
-            </label>
+            {% endfor %}
 
           </div>
         </div>
 
-        <!-- Submit -->
         <button type="submit"
           class="w-full bg-[var(--brand-green)] text-white py-3 rounded-lg text-lg 
                  hover:bg-[var(--brand-green-dark)] transition duration-200
@@ -114,15 +96,29 @@
 <section class="py-16 bg-[var(--brand-green-light)]/40 fade-section">
   <div class="max-w-5xl mx-auto px-6 text-center">
 
-    <h3 class="text-xl font-bold mb-4">
+    <h3 class="text-xl font-bold mb-6">
       Why Use Our Estimator?
     </h3>
 
     <div class="flex justify-center gap-6 text-gray-700 text-sm flex-wrap">
-      <span>✔ No signup required</span>
-      <span>✔ Honest local buyers</span>
-      <span>✔ Sell as-is</span>
-      <span>✔ Close on your timeline</span>
+
+      {% for text in [
+        'No signup required',
+        'Honest local buyers',
+        'Sell as-is',
+        'Close on your timeline'
+      ] %}
+
+      <span class="flex items-center gap-2">
+        <span class="flex items-center justify-center w-5 h-5 rounded-full 
+                     bg-[var(--brand-green)] text-white text-xs font-bold shadow">
+          ✔
+        </span>
+        {{ text }}
+      </span>
+
+      {% endfor %}
+
     </div>
 
   </div>

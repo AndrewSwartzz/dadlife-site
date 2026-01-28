@@ -237,14 +237,17 @@ def book():
 import re
 
 def get_property_estimate(address):
-    url = "https://api.attomdata.com/propertyapi/v1.0.0/property/detail"
+    # ATTOM Basic Profile endpoint (address-based lookup)
+    url = "https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/basicprofile"
 
-    # Expect: "123 Main St, Allentown, PA 18102"
+    # Expect input like:
+    # "1005 Cosenza Court, Easton, PA 18040"
     try:
         street, city_state_zip = [x.strip() for x in address.split(",", 1)]
         city, state_zip = [x.strip() for x in city_state_zip.split(",", 1)]
         state, zip_code = state_zip.split()
     except:
+        print("Address parsing failed")
         return None
 
     headers = {
@@ -253,10 +256,8 @@ def get_property_estimate(address):
     }
 
     params = {
-        "address": street,
-        "city": city,
-        "state": state,
-        "postalcode": zip_code
+        "address1": street,
+        "address2": f"{city}, {state} {zip_code}"
     }
 
     response = requests.get(url, headers=headers, params=params)
@@ -271,11 +272,13 @@ def get_property_estimate(address):
     data = response.json()
 
     try:
-        # ATTOM market value location
-        value = data["property"][0]["assessment"]["market"]["value"]
+        value = data["property"][0]["assessment"]["market"]["mktTtlValue"]
         return int(value)
     except:
+        print("Market value not found in response")
         return None
+
+
 
 
 import os
