@@ -13,14 +13,13 @@
   </div>
 </section>
 
-
 <!-- PROJECT CARDS -->
 <section class="py-20 bg-white fade-section">
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
 
     <!-- Project 1 -->
-    <div class="group perspective">
-      <div class="relative w-full h-[320px] transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+    <div class="perspective flip-card cursor-pointer">
+      <div class="flip-inner relative w-full h-[320px] transition-transform duration-700 transform-style-preserve-3d">
 
         <!-- Front (Before) -->
         <div class="absolute inset-0 backface-hidden rounded-xl overflow-hidden shadow-lg">
@@ -49,8 +48,8 @@
 
 
     <!-- Project 2 -->
-    <div class="group perspective">
-      <div class="relative w-full h-[320px] transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+    <div class="perspective flip-card cursor-pointer">
+      <div class="flip-inner relative w-full h-[320px] transition-transform duration-700 transform-style-preserve-3d">
 
         <!-- Front (Before) -->
         <div class="absolute inset-0 backface-hidden rounded-xl overflow-hidden shadow-lg">
@@ -81,23 +80,44 @@
 </section>
 
 
-<!-- REQUIRED FLIP CARD STYLES -->
+<!-- Flip Card Styles -->
 <style>
 .perspective {
   perspective: 1200px;
 }
+
 .transform-style-preserve-3d {
   transform-style: preserve-3d;
 }
+
 .backface-hidden {
   backface-visibility: hidden;
 }
+
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
-.group-hover\:rotate-y-180:hover {
+
+/* Desktop hover behavior */
+@media (hover: hover) {
+  .flip-card:hover .flip-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Mobile tap behavior */
+.flip-card.flipped .flip-inner {
   transform: rotateY(180deg);
 }
 </style>
+
+<!-- Tap-to-flip script for mobile -->
+<script>
+document.querySelectorAll('.flip-card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('flipped');
+  });
+});
+</script>
 
 {% endblock %}

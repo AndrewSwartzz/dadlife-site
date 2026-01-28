@@ -33,9 +33,21 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* HERO BACKGROUND POSITION CONTROL */
+    .hero-bg {
+      background-position: center;
+    }
+
+    /* Mobile: shift opposite direction */
+    @media (max-width: 768px) {
+      .hero-bg {
+        background-position: 70% center;
+      }
+    }
   </style>
 
-  <!-- Fade observer AFTER DOM loads -->
+  <!-- Fade observer -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const observer = new IntersectionObserver(entries => {
@@ -96,7 +108,7 @@
       </a>
     </div>
 
-    <!-- Mobile -->
+    <!-- Mobile menu button -->
     <button class="md:hidden" onclick="toggleMenu()">
       <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2"
            viewBox="0 0 24 24">
