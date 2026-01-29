@@ -1,51 +1,76 @@
 {% extends "base.html" %}
-{% block title %}Videos & Vlogs{% endblock %}
+{% block title %}Video Resources{% endblock %}
 
 {% block content %}
 
 <!-- PAGE HEADER -->
 <section class="bg-[var(--brand-green-light)]/40 py-20 fade-section">
   <div class="max-w-5xl mx-auto px-6 text-center">
-    <h1 class="text-4xl font-bold mb-4">Video Resources</h1>
+    <h1 class="text-4xl font-bold mb-4">Helpful Home Selling Videos</h1>
     <p class="text-gray-700 text-lg">
-      Example text
+      Learn about cash offers, selling as-is, and avoiding costly mistakes.
     </p>
   </div>
 </section>
 
-<!-- VIDEO SECTION 1 -->
+
+<!-- VIDEOS -->
 <section class="py-20 bg-white fade-section">
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+  <div class="max-w-5xl mx-auto px-6 space-y-20">
 
-    <!-- Text -->
+    <!-- VIDEO 1 -->
     <div>
-      <h2 class="text-3xl font-bold mb-4">
-        Example text
+      <div class="aspect-video mb-6">
+        <iframe class="w-full h-full rounded-xl shadow-lg"
+          src="https://www.youtube.com/embed/kJgkMV-UjuI"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <h2 class="text-2xl font-bold mb-3">
+        The Truth About Cash Offers – What Homeowners Need to Know
       </h2>
 
-      <p class="text-gray-700 mb-6">
-        Example text
-      </p>
-
-      <p class="text-gray-700 mb-6">
-        Example text
-      </p>
-
-      <p class="text-sm text-gray-500 italic">
-        Example text
+      <p class="text-gray-700">
+        Are cash offers really the best option when selling your home in the Lehigh Valley?
+        We break down the pros, cons, and common misconceptions so you can make a smart decision.
       </p>
     </div>
 
-    <!-- Video Placeholder -->
-    <div class="bg-gray-100 rounded-xl shadow-lg p-8 text-center">
-      <div class="aspect-video bg-gray-300 rounded-lg flex items-center justify-center mb-4">
-        <span class="text-gray-600 font-medium">
-          Video Embed Placeholder
-        </span>
+
+    <!-- VIDEO 2 -->
+    <div>
+      <div class="aspect-video mb-6">
+        <iframe class="w-full h-full rounded-xl shadow-lg"
+          src="https://www.youtube.com/embed/HPmAopBIk80"
+          frameborder="0" allowfullscreen></iframe>
       </div>
 
-      <p class="font-semibold">
-        Example text
+      <h2 class="text-2xl font-bold mb-3">
+        Is My Home Ready To Sell in the Lehigh Valley?
+      </h2>
+
+      <p class="text-gray-700">
+        Learn what sellers often miss before listing — from repairs to pricing mistakes —
+        and how to avoid losing thousands.
+      </p>
+    </div>
+
+
+    <!-- VIDEO 3 -->
+    <div>
+      <div class="aspect-video mb-6">
+        <iframe class="w-full h-full rounded-xl shadow-lg"
+          src="https://www.youtube.com/embed/PKrvrWK6frA"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <h2 class="text-2xl font-bold mb-3">
+        Should I Accept a Cash Offer on My Home?
+      </h2>
+
+      <p class="text-gray-700">
+        We explain when selling for cash makes sense, how to spot fair offers,
+        and what to expect from a professional home buyer.
       </p>
     </div>
 
@@ -53,60 +78,65 @@
 </section>
 
 
-<!-- VIDEO SECTION 2 -->
-<section class="py-20 bg-gray-50 fade-section">
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+<!-- TRUST BLURB (NOW ONLY ONCE) -->
+<section class="bg-[var(--brand-green-light)]/50 py-16 fade-section">
+  <div class="max-w-5xl mx-auto px-6 text-gray-800 space-y-4">
 
-    <!-- Text -->
-    <div>
-      <h2 class="text-3xl font-bold mb-4">
-        Example text
-      </h2>
+    <h3 class="font-bold text-xl">Why Homeowners Trust Dadlife Home Solutions</h3>
 
-      <p class="text-gray-700 mb-6">
-        Example text
-      </p>
+    <ul class="space-y-1 text-sm">
+      <li>✅ Get a Cash Offer in 24 Hours – No waiting, no games.</li>
+      <li>✅ Sell As-Is – No repairs or cleaning needed.</li>
+      <li>✅ No Realtor Fees or Closing Costs.</li>
+      <li>✅ Close in as little as 7 days – Or on your schedule.</li>
+      <li>✅ Cash in your hands — guaranteed.</li>
+    </ul>
 
-      <p class="text-gray-700 mb-6">
-        Example text
-      </p>
+    <h3 class="font-bold text-xl pt-3">Who We Help</h3>
 
-      <p class="text-sm text-gray-500 italic">
-        Example text
-      </p>
+    <ul class="space-y-1 text-sm">
+      <li>✔ Homeowners facing foreclosure</li>
+      <li>✔ Inherited or unwanted properties</li>
+      <li>✔ Landlords tired of tenants</li>
+      <li>✔ Divorce, relocation, or job loss</li>
+      <li>✔ Anyone needing to sell fast in Lehigh Valley</li>
+    </ul>
+
+    <div class="pt-3 text-sm">
+      <p><strong>Call / Text:</strong> 484-626-0003</p>
+      <p><strong>Email:</strong> johncummings042@gmail.com</p>
     </div>
-
-    <!-- Video Placeholder -->
-    <div class="bg-gray-100 rounded-xl shadow-lg p-8 text-center">
-      <div class="aspect-video bg-gray-300 rounded-lg flex items-center justify-center mb-4">
-        <span class="text-gray-600 font-medium">
-          Video Embed Placeholder
-        </span>
-      </div>
-
-      <p class="font-semibold">
-        Example text
-      </p>
-    </div>
-
   </div>
 </section>
 
 
-<!-- CTA (UNCHANGED BUTTON) -->
+<!-- YOUTUBE CHANNEL LINK -->
+<section class="bg-gray-50 py-12 text-center fade-section">
+  <p class="text-lg mb-4 font-semibold">
+    Want more real estate tips and seller insights?
+  </p>
+
+  <a href="https://www.youtube.com/@SellmyhomeforcashintheLehighPA" target="_blank"
+     class="bg-[var(--brand-green)] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[var(--brand-green-dark)] transition">
+    Visit Our YouTube Channel
+  </a>
+</section>
+
+
+<!-- FINAL CTA -->
 <section class="bg-[var(--brand-green)] py-20 text-white text-center fade-section">
   <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-    Want a quick idea of what your home could sell for?
+    Want a fast, fair cash offer for your home?
   </h2>
 
   <p class="mb-8 text-lg">
-    Try our free estimator. No signup. No pressure.
+    No repairs. No fees. No pressure.
   </p>
 
   <a href="{{ url_for('offer') }}"
      class="bg-white text-brand px-8 py-4 rounded-lg text-lg font-semibold 
             hover:bg-gray-100 transition shadow-md hover:shadow-lg">
-    See My Offer Range
+    Get My Cash Offer
   </a>
 </section>
 
