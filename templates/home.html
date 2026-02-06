@@ -5,185 +5,207 @@
 
 <!-- HERO WITH BACKGROUND IMAGE -->
 <section class="relative overflow-hidden bg-cover bg-center fade-section
-               bg-[position:60%_center] md:bg-center"
-  style="background-image: url('{{ url_for('static', filename='images/hero-bg.jpg') }}');">
+              bg-[position:60%_center] md:bg-center"
+ style="background-image: url('{{ url_for('static', filename='images/hero-bg.jpg') }}');">
 
-  <div class="absolute inset-0 bg-black/50"></div>
+ <div class="absolute inset-0 bg-black/50"></div>
 
-  <div class="relative max-w-7xl mx-auto px-6 py-28 grid md:grid-cols-2 gap-12 items-center text-white">
+ <div class="relative max-w-7xl mx-auto px-6 min-h-[520px]
+             grid md:grid-cols-2 gap-12 items-center text-white">
 
-    <!-- LEFT -->
-    <div class="max-w-xl">
+   <!-- LEFT -->
+   <div class="max-w-xl">
 
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-        Thinking about selling your home? Let’s talk.
-      </h1>
+     <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+       Thinking about selling your home? Let’s talk.
+     </h1>
 
-      <p class="text-lg text-gray-200 mb-8">
-        No pressure. No sales pitch. Just a real conversation.  
-        If selling your home makes sense, we’ll help. If it doesn’t — we’ll tell you honestly.
-      </p>
+     <p class="text-lg text-gray-200 mb-8">
+       No pressure. No sales pitch. Just a real conversation. 
+       If selling your home makes sense, we’ll help. If it doesn’t — we’ll tell you honestly.
+     </p>
 
-      <div class="flex flex-wrap gap-4">
-        <a href="{{ url_for('offer') }}"
-           class="bg-[var(--brand-green)] text-white px-6 py-3 rounded-lg text-lg 
-                  hover:bg-[var(--brand-green-dark)] transition duration-200 
-                  shadow-md hover:shadow-lg hover:-translate-y-0.5">
-          Get Your Offer
-        </a>
+     <div class="flex flex-wrap gap-4">
+       <a href="{{ url_for('offer') }}"
+          class="bg-[var(--brand-green)] text-white px-6 py-3 rounded-lg text-lg
+                 hover:bg-[var(--brand-green-dark)] transition duration-200
+                 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+         Get Your Offer
+       </a>
 
-        <a href="tel:15555555555"
-           class="bg-white text-brand border border-brand px-6 py-3 rounded-lg text-lg
-                  shadow-sm transition duration-200
-                  hover:bg-[var(--brand-green)] hover:text-white">
-          Call / Text
-        </a>
-      </div>
+       <a href="tel:15555555555"
+          class="bg-white text-brand border border-brand px-6 py-3 rounded-lg text-lg
+                 shadow-sm transition duration-200
+                 hover:bg-[var(--brand-green)] hover:text-white">
+         Call / Text
+       </a>
+     </div>
 
-      <!-- Trust Badges -->
-      <div class="flex gap-6 mt-6 text-sm text-gray-200 flex-wrap">
-        {% for item in ["Local Family-Owned","No Fees","Close in Days"] %}
-        <span class="flex items-center gap-2">
-          <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[var(--brand-green)] shadow">
-            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-            </svg>
-          </span>
-          {{ item }}
-        </span>
-        {% endfor %}
-      </div>
-    </div>
+     <!-- Trust Badges -->
+     <div class="flex gap-6 mt-6 text-sm text-gray-200 flex-wrap">
+       {% for item in ["Local Family-Owned","No Fees","Close in Days"] %}
+       <span class="flex items-center gap-2">
+         <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[var(--brand-green)] shadow">
+           <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+           </svg>
+         </span>
+         {{ item }}
+       </span>
+       {% endfor %}
+     </div>
 
-    <!-- RIGHT -->
-    <div class="flex justify-center md:justify-end md:pr-20">
-      <img src="{{ url_for('static', filename='images/logo.png') }}"
-           alt="Dadlife Property Solutions Logo"
-           class="w-[300px] md:w-[360px] object-contain
-                  drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
-    </div>
+   </div>
 
-  </div>
+<!-- RIGHT -->
+<div class="relative flex justify-center md:justify-end h-full">
+
+  <a href="{{ url_for('about') }}"
+     class="absolute bottom-0 block leading-none">
+
+    <img src="{{ url_for('static', filename='images/family.png') }}"
+         alt="Family"
+         class="block w-[360px] md:w-[460px] object-contain
+                hover:scale-[1.02] transition
+                drop-shadow-[0_6px_18px_rgba(0,0,0,0.55)]">
+
+  </a>
+
+</div>
+
+
+ </div>
 </section>
-
 
 <!-- QUALIFIER -->
 <section class="py-20 bg-[var(--brand-green-light)]/40 fade-section">
-  <div class="max-w-4xl mx-auto px-6 text-center">
+ <div class="max-w-4xl mx-auto px-6 text-center">
 
-    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
-      You might be in the right place if…
-    </h2>
+   <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-8">
+     You might be in the right place if…
+   </h2>
 
-    <ul class="grid md:grid-cols-2 gap-6 text-left text-lg">
-      {% for item in [
-        "You need to sell quickly",
-        "The property needs repairs",
-        "You inherited a home",
-        "You don’t want showings or listings"
-      ] %}
-      <li class="flex items-center gap-3">
-        <span class="text-green-600 text-xl">✔</span>
-        {{ item }}
-      </li>
-      {% endfor %}
-    </ul>
+   <ul class="grid md:grid-cols-2 gap-6 text-left text-lg">
+     {% for item in [
+       "You need to sell quickly",
+       "The property needs repairs",
+       "You inherited a home",
+       "You don’t want showings or listings"
+     ] %}
+     <li class="flex items-center gap-3">
+       <span class="text-green-600 text-xl">✔</span>
+       {{ item }}
+     </li>
+     {% endfor %}
+   </ul>
 
-    <p class="mt-8 text-gray-700">
-      If listing with an agent ends up being better for you — we’ll tell you that too.
-    </p>
-  </div>
+   <p class="mt-8 text-gray-700">
+     If listing with an agent ends up being better for you — we’ll tell you that too.
+   </p>
+
+ </div>
 </section>
-
 
 <!-- HOW IT WORKS -->
-<section class="bg-white py-20 fade-section">
-  <div class="max-w-7xl mx-auto px-6">
+<section class="bg-gray-100 py-20 fade-section">
+ <div class="max-w-7xl mx-auto px-6">
 
-    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center mb-12">
-      How It Works
-    </h2>
+   <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center mb-12">
+     How It Works
+   </h2>
 
-    <div class="grid md:grid-cols-3 gap-8 text-center">
-      {% for step in [
-        ("1","Tell Us About the Property","Share a few details about your home."),
-        ("2","Get an Honest Offer","A real offer range — no obligation."),
-        ("3","Close On Your Timeline","Pick the closing date that works for you.")
-      ] %}
-      <div class="bg-gray-50 p-8 rounded-xl shadow hover:shadow-xl transition hover:-translate-y-1">
-        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-brand-light flex items-center justify-center text-brand font-bold text-xl">
-          {{ step[0] }}
-        </div>
-        <h3 class="font-bold text-xl mb-3">{{ step[1] }}</h3>
-        <p>{{ step[2] }}</p>
-      </div>
-      {% endfor %}
-    </div>
+   <div class="grid md:grid-cols-3 gap-8 text-center">
+     {% for step in [
+       ("1","Tell Us About the Property","Share a few details about your home."),
+       ("2","Get an Honest Offer","A real offer range — no obligation."),
+       ("3","Close On Your Timeline","Pick the closing date that works for you.")
+     ] %}
+     <div class="bg-white p-8 rounded-xl shadow hover:shadow-xl transition hover:-translate-y-1">
+       <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-brand-light flex items-center justify-center text-brand font-bold text-xl">
+         {{ step[0] }}
+       </div>
+       <h3 class="font-bold text-xl mb-3">{{ step[1] }}</h3>
+       <p>{{ step[2] }}</p>
+     </div>
+     {% endfor %}
+   </div>
 
-  </div>
+ </div>
 </section>
-
 
 <!-- LOCAL TRUST -->
 <section class="relative fade-section bg-cover bg-center"
-         style="background-image: url('{{ url_for('static', filename='images/section-bg.jpg') }}');">
+        style="background-image: url('{{ url_for('static', filename='images/section-bg.jpg') }}');">
 
-  <div class="absolute inset-0 bg-black/50"></div>
+ <div class="absolute inset-0 bg-black/50"></div>
 
-  <!-- ✨ No vertical padding here on desktop -->
-  <div class="relative max-w-7xl mx-auto px-6 py-10 md:py-0 grid md:grid-cols-2 gap-12 items-center text-white">
+ <div class="relative max-w-7xl mx-auto px-6 py-10 md:py-0
+             min-h-[460px]
+             grid md:grid-cols-2 gap-12 items-center text-white">
 
-    <!-- Text -->
-    <div>
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-        Local family. Honest conversations.
-      </h2>
+   <!-- Text -->
+   <div>
+     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+       Local family. Honest conversations.
+     </h2>
 
-      <p class="text-gray-200 mb-6">
-        We’re based right here in the Lehigh Valley. Our goal is simple — give homeowners
-        a straightforward, respectful, no-pressure way to sell their home.
-      </p>
+     <p class="text-gray-200 mb-6">
+       We’re based right here in the Lehigh Valley. Our goal is simple — give homeowners
+       a straightforward, respectful, no-pressure way to sell their home.
+     </p>
 
-      <ul class="space-y-3 text-lg">
-        {% for item in ["Local & family-owned","No hidden fees","Honest advice"] %}
-        <li class="flex items-center gap-3">
-          <span class="flex items-center justify-center w-6 h-6 rounded-full bg-[var(--brand-green)] shadow">
-            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-            </svg>
-          </span>
-          {{ item }}
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
+     <ul class="space-y-3 text-lg">
+       {% for item in ["Local & family-owned","No hidden fees","Honest advice"] %}
+       <li class="flex items-center gap-3">
+         <span class="flex items-center justify-center w-6 h-6 rounded-full bg-[var(--brand-green)] shadow">
+           <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+           </svg>
+         </span>
+         {{ item }}
+       </li>
+       {% endfor %}
+     </ul>
+   </div>
 
-    <!-- Image defines section height -->
-    <div class="flex justify-center items-end">
-      <img src="{{ url_for('static', filename='images/family.png') }}"
-           class="rounded-xl shadow-lg w-[320px] md:w-[420px] object-contain"
-           alt="Family photo">
-    </div>
+   <!-- Logo -->
+   <div class="flex justify-center items-center">
 
-  </div>
+     <div class="flex items-center justify-center
+                 w-[320px] h-[320px] md:w-[380px] md:h-[380px]
+                 rounded-full
+                 bg-white/20 backdrop-blur-lg
+                 border border-white/30
+                 shadow-2xl">
+
+       <img src="{{ url_for('static', filename='images/logo.png') }}"
+            alt="Logo"
+            class="w-[260px] md:w-[300px] object-contain">
+
+     </div>
+
+   </div>
+
+ </div>
 </section>
-
 
 <!-- FINAL CTA -->
 <section class="bg-[var(--brand-green)] py-20 text-white text-center fade-section">
-  <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-    Want a quick idea of what your home could sell for?
-  </h2>
 
-  <p class="mb-8 text-lg">
-    Try our free estimator. No signup. No pressure.
-  </p>
+ <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+   Want a quick idea of what your home could sell for?
+ </h2>
 
-  <a href="{{ url_for('offer') }}"
-     class="bg-white text-brand px-8 py-4 rounded-lg text-lg font-semibold 
-            hover:bg-gray-100 transition shadow-md hover:shadow-lg">
-    See My Offer Range
-  </a>
+ <p class="mb-8 text-lg">
+   Try our free estimator. No signup. No pressure.
+ </p>
+
+ <a href="{{ url_for('offer') }}"
+    class="bg-white text-brand px-8 py-4 rounded-lg text-lg font-semibold
+           hover:bg-gray-100 transition shadow-md hover:shadow-lg">
+   See My Offer Range
+ </a>
+
 </section>
 
 {% endblock %}
