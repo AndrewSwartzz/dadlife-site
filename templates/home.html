@@ -10,8 +10,11 @@
 
  <div class="absolute inset-0 bg-black/50"></div>
 
- <div class="relative max-w-7xl mx-auto px-6 min-h-[520px]
-             grid md:grid-cols-2 gap-12 items-center text-white">
+ <!-- ✅ Grid only on desktop -->
+ <div class="relative max-w-7xl mx-auto px-6
+             md:min-h-[520px]
+             md:grid md:grid-cols-2
+             gap-12 items-center text-white">
 
    <!-- LEFT -->
    <div class="max-w-xl">
@@ -57,22 +60,23 @@
 
    </div>
 
-<!-- RIGHT -->
-<div class="relative flex justify-center md:justify-end h-full">
+   <!-- RIGHT -->
+   <div class="relative flex justify-center md:justify-end h-full">
 
-  <a href="{{ url_for('about') }}"
-     class="absolute bottom-0 block leading-none">
+     <a href="{{ url_for('about') }}"
+        class="block md:absolute md:bottom-0 leading-none">
 
-    <img src="{{ url_for('static', filename='images/family.png') }}"
-         alt="Family"
-         class="block w-[360px] md:w-[460px] object-contain
-                hover:scale-[1.02] transition
-                drop-shadow-[0_6px_18px_rgba(0,0,0,0.55)]">
+       <img src="{{ url_for('static', filename='images/family.png') }}"
+            alt="Family"
+            class="block w-[300px] sm:w-[340px] md:w-[460px]
+                   object-contain
+                   mt-6 md:mt-0
+                   hover:scale-[1.02] transition
+                   drop-shadow-[0_6px_18px_rgba(0,0,0,0.55)]">
 
-  </a>
+     </a>
 
-</div>
-
+   </div>
 
  </div>
 </section>
