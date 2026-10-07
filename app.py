@@ -265,6 +265,15 @@ def get_property_estimate(address):
         "address2": f"{city}, {state} {zip_code}"
     }
 
+    print("ADDRESS:", address)
+    print("PARAMS:", params)
+    print("API KEY EXISTS:", bool(ESTATED_API_KEY))
+
+    response = requests.get(url, headers=headers, params=params)
+
+    print("STATUS:", response.status_code)
+    print("RESPONSE:", response.text)
+
     response = requests.get(url, headers=headers, params=params)
 
     print("STATUS:", response.status_code)
